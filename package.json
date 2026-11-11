@@ -1,0 +1,31 @@
+{
+  "name": "bth012-a2-web-adventure-game",
+  "version": "1.0.0",
+  "description": "A keyboard-driven web adventure game - BTH012 Assignment 2",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "bth012",
+    "adventure",
+    "game",
+    "web",
+    "dom"
+  ],
+  "author": "Student",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@vitest/eslint-plugin": "^1.6.26",
+    "eslint": "^10.8.0",
+    "eslint-plugin-n": "^18.2.2",
+    "eslint-plugin-promise": "^7.3.0",
+    "globals": "^17.9.0",
+    "vitest": "^4.1.10"
+  }
+}

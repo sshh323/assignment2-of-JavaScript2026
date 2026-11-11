@@ -1,0 +1,315 @@
+/* ==========================================================================
+   The Lost Amulet of Eldergrove — stylesheet
+   All visual styling lives here; no inline styles are used anywhere.
+   ========================================================================== */
+
+:root {
+  --bg: #1a1626;
+  --bg-2: #2b2440;
+  --panel: #241f36;
+  --border: #3a3155;
+  --text: #e8e3f0;
+  --muted: #a99fc4;
+  --accent: #f7c948;
+  --accent-soft: rgba(247, 201, 72, 0.5);
+  --danger: #ff5b5b;
+  --tile-size: 52px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at 50% 0%, var(--bg-2), var(--bg));
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+#app {
+  width: 100%;
+  max-width: 720px;
+}
+
+/* ---------- screen management ---------- */
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+  animation: fade-in 0.5s ease both;
+}
+
+h1,
+h2 {
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+.title-icon {
+  display: inline-block;
+  animation: float 2.6s ease-in-out infinite;
+}
+
+/* ---------- welcome / objective ---------- */
+.objective {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  line-height: 1.6;
+}
+
+.controls {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 18px;
+  margin: 16px 0;
+}
+
+.controls h2 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  text-align: left;
+}
+
+.controls ul {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+kbd {
+  background: #322a4a;
+  border: 1px solid var(--border);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  padding: 1px 7px;
+  font-family: inherit;
+  font-size: 0.85rem;
+}
+
+/* ---------- buttons ---------- */
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  background: #322a4a;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background: #3d3357;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button.primary {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-top: 8px;
+  font-size: 1.15rem;
+  background: var(--accent);
+  color: #241f36;
+  border-color: var(--accent);
+  animation: treasure-glow 1.8s ease-in-out infinite;
+}
+
+button.primary:hover {
+  background: #ffd76a;
+}
+
+/* ---------- game screen ---------- */
+header .toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 12px 0;
+}
+
+#status-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 8px 0;
+}
+
+.stat {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+}
+
+/* ---------- world / tiles ---------- */
+#world-container {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px;
+  margin: 8px 0;
+}
+
+.tile-row {
+  display: flex;
+  justify-content: center;
+}
+
+.tile {
+  width: var(--tile-size);
+  height: var(--tile-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin: 2px;
+  user-select: none;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.tile-grass {
+  background: #2c3a2f;
+}
+
+.tile-wall {
+  background: #4a4458;
+}
+
+.tile-treasure {
+  background: #4a3b1f;
+  animation: treasure-glow 1.8s ease-in-out infinite;
+}
+
+.tile-exit {
+  background: #2c2a4a;
+  animation: treasure-glow 1.8s ease-in-out infinite alternate;
+}
+
+.tile-player {
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+/* ---------- message log ---------- */
+#log-container {
+  min-height: 92px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin: 8px 0;
+  overflow: hidden;
+}
+
+.log-entry {
+  padding: 2px 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  animation: fade-in 0.3s ease both;
+}
+
+.log-entry:last-child {
+  color: var(--text);
+}
+
+.controls-hint {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   CSS animations (5 used in total)
+   ========================================================================== */
+
+/* 1. Screen / log entry transition */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2. Decorative floating title icon */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* 3. Pulsing glow around the player tile */
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--accent-soft);
+  }
+  50% {
+    box-shadow: 0 0 0 9px rgba(247, 201, 72, 0);
+  }
+}
+
+/* 4. Glowing treasure / exit / primary button */
+@keyframes treasure-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 4px rgba(247, 201, 72, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(247, 201, 72, 0.9);
+  }
+}
+
+/* 5. Shake feedback when the player takes damage */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-6px);
+  }
+  40% {
+    transform: translateX(6px);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(4px);
+  }
+}
+
+.shake {
+  animation: shake 0.4s ease;
+}

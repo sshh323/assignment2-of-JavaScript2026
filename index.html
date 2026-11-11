@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Lost Amulet of Eldergrove</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main id="app">
+
+    <!-- Welcome screen -->
+    <section id="welcome-screen" class="screen active">
+      <h1><span class="title-icon">🧙</span> The Lost Amulet of Eldergrove</h1>
+      <p class="objective">
+        A great evil has stolen the <strong>Amulet of Eldergrove</strong> and hidden it deep
+        within the dungeon. Your quest: <strong>find the Amulet</strong>, then
+        <strong>escape through the exit</strong>. The exit is locked &mdash; find the
+        <strong>Key</strong> to open it. Beware the monsters, traps and swamps; a
+        <strong>Sword</strong> and <strong>Health Potions</strong> will help you survive.
+      </p>
+
+      <div class="controls">
+        <h2>Controls</h2>
+        <ul>
+          <li><kbd>W A S D</kbd> / <kbd>Arrow keys</kbd> &mdash; move</li>
+          <li><kbd>E</kbd> / <kbd>Enter</kbd> &mdash; pick up items</li>
+          <li><kbd>1</kbd>&ndash;<kbd>4</kbd> &mdash; use an inventory item</li>
+          <li><kbd>F</kbd> &mdash; toggle fullscreen</li>
+        </ul>
+      </div>
+
+      <button id="start-btn" type="button" class="primary">▶ Start Adventure</button>
+    </section>
+
+    <!-- Game screen -->
+    <section id="game-screen" class="screen">
+      <header>
+        <h2>🗺️ Dungeon Map</h2>
+        <div id="status-container"></div>
+        <div class="toolbar">
+          <button id="fullscreen-btn" type="button">⛶ Fullscreen</button>
+          <button id="new-random-btn" type="button">🎲 New Random Map</button>
+          <button id="restart-btn" type="button">↺ Restart</button>
+        </div>
+      </header>
+
+      <div id="world-container"></div>
+      <div id="log-container"></div>
+
+      <p class="controls-hint">
+        Move: <kbd>WASD</kbd>/<kbd>Arrows</kbd> &middot; Pick up: <kbd>E</kbd> &middot;
+        Use item: <kbd>1</kbd>&ndash;<kbd>4</kbd> &middot; Fullscreen: <kbd>F</kbd>
+      </p>
+    </section>
+
+    <!-- End screen -->
+    <section id="end-screen" class="screen">
+      <h1 id="end-title"></h1>
+      <p id="end-message" class="objective"></p>
+      <button id="play-again-btn" type="button" class="primary">↺ Play Again</button>
+    </section>
+
+  </main>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
